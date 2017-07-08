@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.andres.laberinto_ecci.Principal">
+
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:orientation="vertical"
+        android:weightSum="1"
+        tools:layout_editor_absoluteX="11dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TextView
+            android:id="@+id/TVPBienvenido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:text="Bienvenido"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TVPBienvenida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Has ingresado con el usuario: "
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="nombre del usuario"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="25sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.10" />
+
+        <TextView
+            android:id="@+id/TVPQueHacer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="que quieres hacer?"
+            android:textAlignment="inherit"
+            android:textColor="@android:color/black"
+            android:textSize="22sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.10" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/BPIntrucciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.53"
+                android:text="Instrucciones" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.20" />
+
+            <Button
+                android:id="@+id/BPJuego"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Juego" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/BPPuntuacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.78"
+                android:text="Puntuacion" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.20" />
+
+            <Button
+                android:id="@+id/BPCreditos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Creditos" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/BPCerrarSesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cerrar Sesion" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

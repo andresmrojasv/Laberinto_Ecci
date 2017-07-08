@@ -16,6 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Registro" />
+        <activity android:name=".Principal" />
+        <activity android:name=".Instrucciones" />
+        <activity android:name=".Juego" />
+        <activity android:name=".Puntuacion" />
+        <activity android:name=".Creditos"></activity>
     </application>
 
 </manifest>
