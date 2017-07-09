@@ -5,15 +5,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Principal extends AppCompatActivity implements View.OnClickListener{
 
+    TextView usuariologueado;
     Button instrucciones, juego, puntuacion, creditos, cerrarsesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+
+        usuariologueado = (TextView) findViewById(R.id.TVPUsuario);
+        usuariologueado.setText(this.getIntent().getStringExtra("user"));
+
         instrucciones = (Button) findViewById(R.id.BPIntrucciones);
         instrucciones.setOnClickListener(this);
         juego = (Button) findViewById(R.id.BPJuego);

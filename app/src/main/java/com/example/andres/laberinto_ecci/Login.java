@@ -2,11 +2,15 @@ package com.example.andres.laberinto_ecci;
 
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
@@ -17,6 +21,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        GlobalTools.baseDeDatos = new UsuariosBD(this,"BDUsuarios",null,GlobalTools.bdVersion);
         usuario = (EditText) findViewById(R.id.ETLUsuario);
         contraseña = (EditText) findViewById(R.id.ETLContraseña);
         login = (Button) findViewById(R.id.BLIniciarSesion);
@@ -39,14 +44,33 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
         }else if(v.equals(login)){
 
-            //TODO conección a la BD para el logueo
+            SQLiteDatabase bd = GlobalTools.baseDeDatos.getReadableDatabase();
+            Cursor cursor = bd.rawQuery("SELECT user, pass FROM usuarios WHERE user =?", new String[]{usuario.getText().toString()});
 
-            //Logueo de admin para probar
+            if (cursor.moveToFirst()){
 
+                String passG = cursor.getString(1);
+                if(passG.equals(contraseña.getText().toString())){
 
-                Intent i= new Intent(this, Principal.class);
-                i.putExtra("user", usuario.getText().toString());
-                startActivity(i);
+                    Intent i= new Intent(this, Principal.class);
+                    i.putExtra("user", usuario.getText().toString());
+                    startActivity(i);
+
+                }else{
+
+                    Toast.makeText(this, "Contraseña Incorrecta", Toast.LENGTH_LONG).show();
+
+                }
+
+            }else{
+
+                Toast.makeText(this, "Este usuario no esta registrado",Toast.LENGTH_LONG).show();
+                contraseña.setText("");
+
+            }
+
+            cursor.close();
+            bd.close();
 
         }else if(v.equals(salir)){
 
