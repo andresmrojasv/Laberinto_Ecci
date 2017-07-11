@@ -7,11 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+//Definimos la clase Principal donde declaramos variables para pasar la informacionn por las actividades
+
 public class Principal extends AppCompatActivity implements View.OnClickListener{
 
     TextView usuariologueado;
-    Button instrucciones, juego, puntuacion, creditos, cerrarsesion;
+    Button  juego, puntuacion, creditos, cerrarsesion;
 
+
+    // Metodo heredado el cual nos permite conectar  la vista con la clase para poder hacerla funcionar
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +24,6 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
         usuariologueado = (TextView) findViewById(R.id.TVPUsuario);
         usuariologueado.setText(this.getIntent().getStringExtra("user"));
 
-        instrucciones = (Button) findViewById(R.id.BPIntrucciones);
-        instrucciones.setOnClickListener(this);
         juego = (Button) findViewById(R.id.BPJuego);
         juego.setOnClickListener(this);
         puntuacion = (Button) findViewById(R.id.BPPuntuacion);
@@ -33,15 +35,11 @@ public class Principal extends AppCompatActivity implements View.OnClickListener
 
     }
 
+    // Metodo heredado que se llama cuando se hace click en la vista
     @Override
     public void onClick(View v) {
 
-        if (v.equals(instrucciones)){
-
-            Intent i = new Intent(this, Instrucciones.class);
-            startActivity(i);
-
-        }else if(v.equals(juego)){
+       if(v.equals(juego)){
 
             Intent i = new Intent(this, Juego.class);
             startActivity(i);

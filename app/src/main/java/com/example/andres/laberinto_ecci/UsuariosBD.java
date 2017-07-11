@@ -7,8 +7,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by Andres on 8/07/2017.
  */
-
+// Creamos la clase que nos permite crear la base datos
 public class UsuariosBD extends SQLiteOpenHelper{
+
+// Realizamos el query creando la tabla usuario
 
     String sqlCreate = "CREATE TABLE usuarios (user TEXT PRIMARY KEY, pass TEXT)";
 
@@ -16,13 +18,15 @@ public class UsuariosBD extends SQLiteOpenHelper{
         super(context, name, factory, version);
     }
 
-    @Override
+//Metodo llamado cuando se crea la la base de datos por primera vaz creando filas y colunmnas
+   @Override
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL(sqlCreate);
 
     }
 
+// Metodo heredado y llamado cuando la base de datos necesita mejoras o actualizaciones
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 

@@ -11,25 +11,28 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import static com.example.andres.laberinto_ecci.GlobalTools.juego;
 
+//Definimos la clase Juego donde declaramos variables e implementamos la libreria SensorEventListener
+
 public class Juego extends AppCompatActivity implements SensorEventListener {
 
-    private TextView crono;
+    
+    private TextView crono; // Declaramos variable en la cual mostraremos al usuario el cronometro
+    private SensorManager sensorManager;// Declaramos variable con la cual accederemos al sensor del dispositivo
+    private Sensor acelerometro;//  Declaramos variable para capturar la velocidad del movimiento del dispositivo
+    private long ultimaActualizacion; // Variable que nos permite capturar la actualizacion del cronometro
+    private Esfera bolita; // Variable declarada para llamar la clase Esfera
 
-    private SensorManager sensorManager;
-    private Sensor acelerometro;
-    private long ultimaActualizacion;
-    private Esfera bolita;
-
+    // Metodo heredado el cual nos permite conectar  la vista con la clase para poder hacerla funcionar
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_juego);
-        setCrono ((TextView) findViewById(R.id.TVJCronometro));
-        juego = this;
+        setContentView(R.layout.activity_juego); // Recurso de diseño donde definimos la interfaz para el usuario
+        setCrono ((TextView) findViewById(R.id.TVJCronometro)); //Declaracion del destino donde mostraremos el cronometro
+        juego = this; //
+
         GlobalTools.miCronometro = new Cronometro();
         GlobalTools.miCronometro.execute();
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         acelerometro = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         ultimaActualizacion = System.currentTimeMillis();
@@ -61,6 +64,7 @@ public class Juego extends AppCompatActivity implements SensorEventListener {
         sensorManager.unregisterListener(this);
     }
 
+    //Metodo llamado cuando la precision registrada cambia
     @Override
     public void onSensorChanged(SensorEvent event) {
 

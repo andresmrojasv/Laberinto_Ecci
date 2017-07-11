@@ -24,7 +24,7 @@
         <activity android:name=".Instrucciones"
             android:screenOrientation="portrait"/>
         <activity android:name=".Juego"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="landscape"/>
         <activity android:name=".Puntuacion"
             android:screenOrientation="portrait"/>
         <activity android:name=".Creditos"

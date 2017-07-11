@@ -10,12 +10,22 @@
 
     <LinearLayout
         android:id="@+id/LLLogin"
-        android:layout_width="368dp"
-        android:layout_height="495dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:weightSum="1"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/TVLogin"
@@ -79,7 +89,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
@@ -99,11 +109,27 @@
                 android:text="Registrarse" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/BLSalir"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Salir" />
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="0dp">
+
+            <Button
+                android:id="@+id/BLinstrucciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.57"
+                android:text="Instrucciones" />
+
+            <Button
+                android:id="@+id/BLSalir"
+                android:layout_width="152dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.49"
+                android:text="Salir" />
+        </LinearLayout>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+//Definimos la clase Principal donde declaramos variables para pasar la informacionn por las actividades
 public class Puntuacion extends AppCompatActivity implements View.OnClickListener{
 
     Button regresar;
 
+
+    // Metodo heredado el cual nos permite conectar  la vista con la clase para poder hacerla funcionar
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +22,7 @@ public class Puntuacion extends AppCompatActivity implements View.OnClickListene
 
     }
 
+    // Metodo heredado que se llama cuando se hace click en la vista
     @Override
     public void onClick(View v) {
 

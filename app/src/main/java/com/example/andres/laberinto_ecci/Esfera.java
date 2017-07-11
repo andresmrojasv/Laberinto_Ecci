@@ -3,13 +3,18 @@ package com.example.andres.laberinto_ecci;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 /**
  * Created by Andres on 8/07/2017.
  */
+
+//  Creamos clase Esfera heredando de la subclase ImageViw la cual nos permitira visualizar un archivo de imagen
 
 public class Esfera extends ImageView {
 
@@ -17,9 +22,8 @@ public class Esfera extends ImageView {
     private int posx;
     private int posy;
     int color;
-
     ShapeDrawable capa;
-
+//Metodo en el cual definimos las variables de la esfera
     public Esfera(Context context, int radio, int posx, int posy) {
         super(context);
         this.setRadio(radio);
@@ -30,7 +34,7 @@ public class Esfera extends ImageView {
         capa.getPaint().setColor(color);
         capa.setBounds(posx-radio, posy-radio, posx+radio, posy+radio);
     }
-
+//Metodo heredado de la clase en la cual pintamos la esfera
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -39,11 +43,12 @@ public class Esfera extends ImageView {
         invalidate();
 
     }
-
-    public void move (int x, int y){
+// Este metodo cambia las coordenadas en el lienzo
+        public void move (int x, int y){
         setPosx(getPosx() + x);
         setPosy(getPosy() + y);
     }
+// Encapsulamiento de variables
 
     public int getRadio() {
         return radio;
